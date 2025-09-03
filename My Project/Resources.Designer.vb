@@ -93,9 +93,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property logout__1_() As System.Drawing.Bitmap
+        Friend ReadOnly Property group() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("logout (1)", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("group", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -103,9 +103,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property money_transfer() As System.Drawing.Bitmap
+        Friend ReadOnly Property logout() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("money-transfer", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("logout", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -113,9 +113,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property multiple_users_silhouette() As System.Drawing.Bitmap
+        Friend ReadOnly Property new_logo() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("multiple-users-silhouette", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("new_logo", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -123,9 +123,29 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property user__2_() As System.Drawing.Bitmap
+        Friend ReadOnly Property transactionF() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("user (2)", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("transactionF", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property trust_central_bank_high_resolution_logo_transparent() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("trust-central-bank-high-resolution-logo-transparent", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property userADD() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("userADD", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

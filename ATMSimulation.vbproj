@@ -84,10 +84,22 @@
     <Compile Include="frmAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmBalance.Designer.vb">
+      <DependentUpon>frmBalance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBalance.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmCreateAcc.Designer.vb">
       <DependentUpon>frmCreateAcc.vb</DependentUpon>
     </Compile>
     <Compile Include="frmCreateAcc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeposit.Designer.vb">
+      <DependentUpon>frmDeposit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDeposit.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogin.vb">
@@ -103,16 +115,22 @@
     <Compile Include="frmTransactionLogs.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmTransfer.Designer.vb">
+      <DependentUpon>frmTransfer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTransfer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmUser.Designer.vb">
       <DependentUpon>frmUser.vb</DependentUpon>
     </Compile>
     <Compile Include="frmUser.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmUsers.Designer.vb">
-      <DependentUpon>frmUsers.vb</DependentUpon>
+    <Compile Include="frmWithdraw.Designer.vb">
+      <DependentUpon>frmWithdraw.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmUsers.vb">
+    <Compile Include="frmWithdraw.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -131,13 +149,25 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="frmUserLogs.Designer.vb">
+      <DependentUpon>frmUserLogs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmUserLogs.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmAdmin.resx">
       <DependentUpon>frmAdmin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmBalance.resx">
+      <DependentUpon>frmBalance.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCreateAcc.resx">
       <DependentUpon>frmCreateAcc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeposit.resx">
+      <DependentUpon>frmDeposit.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
@@ -145,17 +175,23 @@
     <EmbeddedResource Include="frmTransactionLogs.resx">
       <DependentUpon>frmTransactionLogs.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmTransfer.resx">
+      <DependentUpon>frmTransfer.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmUser.resx">
       <DependentUpon>frmUser.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUsers.resx">
-      <DependentUpon>frmUsers.vb</DependentUpon>
+    <EmbeddedResource Include="frmWithdraw.resx">
+      <DependentUpon>frmWithdraw.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserLogs.resx">
+      <DependentUpon>frmUserLogs.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +238,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\credit-card.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trust-central-bank-high-resolution-logo-transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transactionLOG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transactionLOG1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\userTEST.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\userADD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transactionF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

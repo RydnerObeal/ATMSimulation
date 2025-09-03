@@ -8,4 +8,9 @@ Public Class frmLogin
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         frmUser.ShowDialog()
     End Sub
+
+
+    Private Sub txtPIN_TextChanged(sender As Object, e As EventArgs) Handles txtPIN.TextChanged
+
+    End Sub
 End Class

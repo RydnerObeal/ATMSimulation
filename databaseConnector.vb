@@ -7,7 +7,7 @@ Module databaseConnector
 
     Public Sub Connect()
         cn.Close()
-        cn.ConnectionString = "server=localhost;user=root;password=;database=atm_simulationdb"
+        cn.ConnectionString = "server=localhost;user=root;password=;database=atm_system"
         cn.Open()
     End Sub
 End Module

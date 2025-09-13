@@ -30,22 +30,21 @@ Partial Class frmUser
         Me.btnTransfer = New System.Windows.Forms.Button()
         Me.btnTransaction = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.lblNumber = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.btnLogout = New System.Windows.Forms.Button()
         Me.lblName = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.btnLogout = New System.Windows.Forms.Button()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PanelBottons = New System.Windows.Forms.Panel()
         Me.ShowPanel = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.PanelBottons.SuspendLayout()
         Me.ShowPanel.SuspendLayout()
-        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -145,6 +144,56 @@ Partial Class frmUser
         Me.Panel1.Size = New System.Drawing.Size(1232, 181)
         Me.Panel1.TabIndex = 6
         '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.lblNumber)
+        Me.Panel3.Controls.Add(Me.Label4)
+        Me.Panel3.Controls.Add(Me.Label1)
+        Me.Panel3.Controls.Add(Me.btnLogout)
+        Me.Panel3.Controls.Add(Me.lblName)
+        Me.Panel3.Controls.Add(Me.Label2)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel3.Location = New System.Drawing.Point(191, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(1041, 181)
+        Me.Panel3.TabIndex = 8
+        '
+        'lblNumber
+        '
+        Me.lblNumber.AutoSize = True
+        Me.lblNumber.Font = New System.Drawing.Font("Arial Rounded MT Bold", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNumber.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.lblNumber.Location = New System.Drawing.Point(236, 144)
+        Me.lblNumber.Name = "lblNumber"
+        Me.lblNumber.Size = New System.Drawing.Size(124, 27)
+        Me.lblNumber.TabIndex = 9
+        Me.lblNumber.Text = "xxx-xxx-xx"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label4.Location = New System.Drawing.Point(13, 144)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(202, 27)
+        Me.Label4.TabIndex = 8
+        Me.Label4.Text = "Account Number"
+        '
+        'btnLogout
+        '
+        Me.btnLogout.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.btnLogout.FlatAppearance.BorderColor = System.Drawing.Color.Blue
+        Me.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLogout.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLogout.Location = New System.Drawing.Point(814, 110)
+        Me.btnLogout.Name = "btnLogout"
+        Me.btnLogout.Size = New System.Drawing.Size(218, 61)
+        Me.btnLogout.TabIndex = 7
+        Me.btnLogout.Text = "Logout"
+        Me.btnLogout.UseVisualStyleBackColor = False
+        '
         'lblName
         '
         Me.lblName.AutoSize = True
@@ -167,19 +216,16 @@ Partial Class frmUser
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Welcome! "
         '
-        'btnLogout
+        'Panel2
         '
-        Me.btnLogout.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(235, Byte), Integer))
-        Me.btnLogout.FlatAppearance.BorderColor = System.Drawing.Color.Blue
-        Me.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLogout.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLogout.Location = New System.Drawing.Point(814, 110)
-        Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Size = New System.Drawing.Size(218, 61)
-        Me.btnLogout.TabIndex = 7
-        Me.btnLogout.Text = "Logout"
-        Me.btnLogout.UseVisualStyleBackColor = False
+        Me.Panel2.BackColor = System.Drawing.Color.Gray
+        Me.Panel2.BackgroundImage = CType(resources.GetObject("Panel2.BackgroundImage"), System.Drawing.Image)
+        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(191, 181)
+        Me.Panel2.TabIndex = 0
         '
         'PanelBottons
         '
@@ -201,66 +247,6 @@ Partial Class frmUser
         Me.ShowPanel.Name = "ShowPanel"
         Me.ShowPanel.Size = New System.Drawing.Size(823, 523)
         Me.ShowPanel.TabIndex = 9
-        '
-        'Panel3
-        '
-        Me.Panel3.Controls.Add(Me.Label5)
-        Me.Panel3.Controls.Add(Me.Label3)
-        Me.Panel3.Controls.Add(Me.Label4)
-        Me.Panel3.Controls.Add(Me.Label1)
-        Me.Panel3.Controls.Add(Me.btnLogout)
-        Me.Panel3.Controls.Add(Me.lblName)
-        Me.Panel3.Controls.Add(Me.Label2)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel3.Location = New System.Drawing.Point(191, 0)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1041, 181)
-        Me.Panel3.TabIndex = 8
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.Location = New System.Drawing.Point(236, 144)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(124, 27)
-        Me.Label3.TabIndex = 9
-        Me.Label3.Text = "xxx-xxx-xx"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Arial Rounded MT Bold", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label4.Location = New System.Drawing.Point(13, 144)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(202, 27)
-        Me.Label4.TabIndex = 8
-        Me.Label4.Text = "Account Number"
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.Gray
-        Me.Panel2.BackgroundImage = CType(resources.GetObject("Panel2.BackgroundImage"), System.Drawing.Image)
-        Me.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(191, 181)
-        Me.Panel2.TabIndex = 0
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.Yellow
-        Me.Label5.Location = New System.Drawing.Point(366, 91)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(366, 80)
-        Me.Label5.TabIndex = 60
-        Me.Label5.Text = "Ask GPT how to mask some part of the" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "account number" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "sabi kse dpt show yan tpo" &
-    "s naka censor ung iba"
         '
         'Label6
         '
@@ -301,10 +287,10 @@ Partial Class frmUser
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Trust Central Bank"
         Me.Panel1.ResumeLayout(False)
-        Me.PanelBottons.ResumeLayout(False)
-        Me.ShowPanel.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        Me.PanelBottons.ResumeLayout(False)
+        Me.ShowPanel.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -324,9 +310,8 @@ Partial Class frmUser
     Friend WithEvents PanelBottons As Panel
     Friend WithEvents ShowPanel As Panel
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents Label3 As Label
+    Friend WithEvents lblNumber As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
 End Class

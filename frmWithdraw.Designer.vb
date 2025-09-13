@@ -23,8 +23,8 @@ Partial Class frmWithdraw
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtUserID = New System.Windows.Forms.TextBox()
-        Me.btnDeposit = New System.Windows.Forms.Button()
+        Me.txtAmountWithdraw = New System.Windows.Forms.TextBox()
+        Me.btnWithdraw = New System.Windows.Forms.Button()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.lblBalance = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -43,33 +43,33 @@ Partial Class frmWithdraw
         Me.Label3.TabIndex = 71
         Me.Label3.Text = "Amount to Withdraw: "
         '
-        'txtUserID
+        'txtAmountWithdraw
         '
-        Me.txtUserID.BackColor = System.Drawing.SystemColors.Menu
-        Me.txtUserID.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtUserID.Font = New System.Drawing.Font("Arial Rounded MT Bold", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUserID.ForeColor = System.Drawing.SystemColors.MenuText
-        Me.txtUserID.Location = New System.Drawing.Point(445, 229)
-        Me.txtUserID.Name = "txtUserID"
-        Me.txtUserID.Size = New System.Drawing.Size(247, 39)
-        Me.txtUserID.TabIndex = 70
-        Me.txtUserID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtAmountWithdraw.BackColor = System.Drawing.SystemColors.Menu
+        Me.txtAmountWithdraw.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtAmountWithdraw.Font = New System.Drawing.Font("Arial Rounded MT Bold", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAmountWithdraw.ForeColor = System.Drawing.SystemColors.MenuText
+        Me.txtAmountWithdraw.Location = New System.Drawing.Point(445, 229)
+        Me.txtAmountWithdraw.Name = "txtAmountWithdraw"
+        Me.txtAmountWithdraw.Size = New System.Drawing.Size(247, 39)
+        Me.txtAmountWithdraw.TabIndex = 70
+        Me.txtAmountWithdraw.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'btnDeposit
+        'btnWithdraw
         '
-        Me.btnDeposit.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(235, Byte), Integer))
-        Me.btnDeposit.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnDeposit.FlatAppearance.BorderSize = 0
-        Me.btnDeposit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnDeposit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDeposit.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDeposit.ForeColor = System.Drawing.Color.DarkRed
-        Me.btnDeposit.Location = New System.Drawing.Point(234, 343)
-        Me.btnDeposit.Name = "btnDeposit"
-        Me.btnDeposit.Size = New System.Drawing.Size(177, 43)
-        Me.btnDeposit.TabIndex = 69
-        Me.btnDeposit.Text = "Withdraw"
-        Me.btnDeposit.UseVisualStyleBackColor = False
+        Me.btnWithdraw.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.btnWithdraw.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnWithdraw.FlatAppearance.BorderSize = 0
+        Me.btnWithdraw.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnWithdraw.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnWithdraw.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnWithdraw.ForeColor = System.Drawing.Color.DarkRed
+        Me.btnWithdraw.Location = New System.Drawing.Point(234, 343)
+        Me.btnWithdraw.Name = "btnWithdraw"
+        Me.btnWithdraw.Size = New System.Drawing.Size(177, 43)
+        Me.btnWithdraw.TabIndex = 69
+        Me.btnWithdraw.Text = "Withdraw"
+        Me.btnWithdraw.UseVisualStyleBackColor = False
         '
         'btnBack
         '
@@ -139,8 +139,8 @@ Partial Class frmWithdraw
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(74, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(823, 523)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.txtUserID)
-        Me.Controls.Add(Me.btnDeposit)
+        Me.Controls.Add(Me.txtAmountWithdraw)
+        Me.Controls.Add(Me.btnWithdraw)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.lblBalance)
         Me.Controls.Add(Me.Label5)
@@ -155,8 +155,8 @@ Partial Class frmWithdraw
     End Sub
 
     Friend WithEvents Label3 As Label
-    Friend WithEvents txtUserID As TextBox
-    Friend WithEvents btnDeposit As Button
+    Friend WithEvents txtAmountWithdraw As TextBox
+    Friend WithEvents btnWithdraw As Button
     Friend WithEvents btnBack As Button
     Friend WithEvents lblBalance As Label
     Friend WithEvents Label5 As Label

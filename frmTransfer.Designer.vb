@@ -28,7 +28,7 @@ Partial Class frmTransfer
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtTAN = New System.Windows.Forms.TextBox()
+        Me.txtTransferTo = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtAmountTransfer = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
@@ -109,17 +109,17 @@ Partial Class frmTransfer
         Me.Label3.TabIndex = 76
         Me.Label3.Text = "Transfer to: (Account Number)"
         '
-        'txtTAN
+        'txtTransferTo
         '
-        Me.txtTAN.BackColor = System.Drawing.SystemColors.Menu
-        Me.txtTAN.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtTAN.Font = New System.Drawing.Font("Arial Rounded MT Bold", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtTAN.ForeColor = System.Drawing.SystemColors.MenuText
-        Me.txtTAN.Location = New System.Drawing.Point(412, 198)
-        Me.txtTAN.Name = "txtTAN"
-        Me.txtTAN.Size = New System.Drawing.Size(311, 32)
-        Me.txtTAN.TabIndex = 75
-        Me.txtTAN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtTransferTo.BackColor = System.Drawing.SystemColors.Menu
+        Me.txtTransferTo.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtTransferTo.Font = New System.Drawing.Font("Arial Rounded MT Bold", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTransferTo.ForeColor = System.Drawing.SystemColors.MenuText
+        Me.txtTransferTo.Location = New System.Drawing.Point(412, 198)
+        Me.txtTransferTo.Name = "txtTransferTo"
+        Me.txtTransferTo.Size = New System.Drawing.Size(311, 32)
+        Me.txtTransferTo.TabIndex = 75
+        Me.txtTransferTo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label4
         '
@@ -153,7 +153,7 @@ Partial Class frmTransfer
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtAmountTransfer)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.txtTAN)
+        Me.Controls.Add(Me.txtTransferTo)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.btnTransfer)
         Me.Controls.Add(Me.btnBack)
@@ -173,7 +173,7 @@ Partial Class frmTransfer
     Friend WithEvents Label1 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents txtTAN As TextBox
+    Friend WithEvents txtTransferTo As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents txtAmountTransfer As TextBox
 End Class

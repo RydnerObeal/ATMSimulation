@@ -28,7 +28,7 @@ Partial Class frmDeposit
         Me.Label5 = New System.Windows.Forms.Label()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.btnDeposit = New System.Windows.Forms.Button()
-        Me.txtUserID = New System.Windows.Forms.TextBox()
+        Me.txtAmountDeposit = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
@@ -109,17 +109,17 @@ Partial Class frmDeposit
         Me.btnDeposit.Text = "Deposit"
         Me.btnDeposit.UseVisualStyleBackColor = False
         '
-        'txtUserID
+        'txtAmountDeposit
         '
-        Me.txtUserID.BackColor = System.Drawing.SystemColors.Menu
-        Me.txtUserID.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtUserID.Font = New System.Drawing.Font("Arial Rounded MT Bold", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUserID.ForeColor = System.Drawing.SystemColors.MenuText
-        Me.txtUserID.Location = New System.Drawing.Point(445, 229)
-        Me.txtUserID.Name = "txtUserID"
-        Me.txtUserID.Size = New System.Drawing.Size(247, 39)
-        Me.txtUserID.TabIndex = 62
-        Me.txtUserID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.txtAmountDeposit.BackColor = System.Drawing.SystemColors.Menu
+        Me.txtAmountDeposit.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtAmountDeposit.Font = New System.Drawing.Font("Arial Rounded MT Bold", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAmountDeposit.ForeColor = System.Drawing.SystemColors.MenuText
+        Me.txtAmountDeposit.Location = New System.Drawing.Point(445, 229)
+        Me.txtAmountDeposit.Name = "txtAmountDeposit"
+        Me.txtAmountDeposit.Size = New System.Drawing.Size(247, 39)
+        Me.txtAmountDeposit.TabIndex = 62
+        Me.txtAmountDeposit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label3
         '
@@ -139,7 +139,7 @@ Partial Class frmDeposit
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(74, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(823, 523)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.txtUserID)
+        Me.Controls.Add(Me.txtAmountDeposit)
         Me.Controls.Add(Me.btnDeposit)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.lblBalance)
@@ -160,6 +160,6 @@ Partial Class frmDeposit
     Friend WithEvents Label5 As Label
     Friend WithEvents btnBack As Button
     Friend WithEvents btnDeposit As Button
-    Friend WithEvents txtUserID As TextBox
+    Friend WithEvents txtAmountDeposit As TextBox
     Friend WithEvents Label3 As Label
 End Class

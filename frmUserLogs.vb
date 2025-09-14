@@ -99,7 +99,7 @@ Public Class frmUserLogs
                 End Using
             End Using
 
-            ' Debug: Show how many transactions were loaded
+            ' Show how many transactions were loaded
             MessageBox.Show($"Loaded {ListView2.Items.Count} transactions for account: {CurrentUserAccount}",
                           "Debug Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
 

@@ -60,7 +60,7 @@ Public Class frmWithdraw
             cmd.Parameters.AddWithValue("@acc", UserAccountNumber)
             cmd.ExecuteNonQuery()
 
-            ' 🆕 Log the withdrawal transaction
+            ' Log the withdrawal transaction
             sql = "INSERT INTO withdrawals (account_number, amount, withdrawal_date) VALUES (@acc, @amount, NOW())"
             cmd = New MySqlCommand(sql, cn, transaction)
             cmd.Parameters.AddWithValue("@acc", UserAccountNumber)

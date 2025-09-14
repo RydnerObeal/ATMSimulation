@@ -18,6 +18,7 @@ Public Class frmTransactionLogs
         ' Clear and add columns
         TransactionList.Columns.Clear()
         TransactionList.Columns.Add("Account Number", 120)
+        TransactionList.Columns.Add("Customer Name", 150)
         TransactionList.Columns.Add("Transaction Type", 120)
         TransactionList.Columns.Add("Amount", 100)
         TransactionList.Columns.Add("Date", 150)
@@ -32,38 +33,46 @@ Public Class frmTransactionLogs
 
             sql = "
                 SELECT 
-                    from_account as account_number,
+                    ft.from_account as account_number,
+                    COALESCE(u.name, 'Unknown') as customer_name,
                     'Transfer Out' as transaction_type,
-                    amount,
-                    COALESCE(transfer_date, NOW()) as transaction_date
-                FROM fund_transfers
+                    ft.amount,
+                    COALESCE(ft.transfer_date, NOW()) as transaction_date
+                FROM fund_transfers ft
+                LEFT JOIN users u ON ft.from_account = u.account_number
                 
                 UNION ALL
                 
                 SELECT 
-                    to_account as account_number,
+                    ft.to_account as account_number,
+                    COALESCE(u.name, 'Unknown') as customer_name,
                     'Transfer In' as transaction_type,
-                    amount,
-                    COALESCE(transfer_date, NOW()) as transaction_date
-                FROM fund_transfers
+                    ft.amount,
+                    COALESCE(ft.transfer_date, NOW()) as transaction_date
+                FROM fund_transfers ft
+                LEFT JOIN users u ON ft.to_account = u.account_number
                 
                 UNION ALL
                 
                 SELECT 
-                    account_number,
+                    d.account_number,
+                    COALESCE(u.name, 'Unknown') as customer_name,
                     'Deposit' as transaction_type,
-                    amount,
-                    COALESCE(deposit_date, NOW()) as transaction_date
-                FROM deposits
+                    d.amount,
+                    COALESCE(d.deposit_date, NOW()) as transaction_date
+                FROM deposits d
+                LEFT JOIN users u ON d.account_number = u.account_number
                 
                 UNION ALL
                 
                 SELECT 
-                    account_number,
+                    w.account_number,
+                    COALESCE(u.name, 'Unknown') as customer_name,
                     'Withdrawal' as transaction_type,
-                    amount,
-                    COALESCE(withdrawal_date, NOW()) as transaction_date
-                FROM withdrawals
+                    w.amount,
+                    COALESCE(w.withdrawal_date, NOW()) as transaction_date
+                FROM withdrawals w
+                LEFT JOIN users u ON w.account_number = u.account_number
                 
                 ORDER BY transaction_date DESC"
 
@@ -73,6 +82,7 @@ Public Class frmTransactionLogs
             While dr.Read()
                 ' Create ListView item
                 Dim item As New ListViewItem(dr("account_number").ToString())
+                item.SubItems.Add(dr("customer_name").ToString())
                 item.SubItems.Add(dr("transaction_type").ToString())
                 item.SubItems.Add("₱" & Convert.ToDecimal(dr("amount")).ToString("N2"))
 
@@ -87,9 +97,9 @@ Public Class frmTransactionLogs
                 ' Color coding
                 Dim transType = dr("transaction_type").ToString()
                 If transType = "Deposit" Or transType = "Transfer In" Then
-                    item.BackColor = Color.LightGreen ' Money coming in
+                    item.BackColor = Color.LightGreen
                 ElseIf transType = "Withdrawal" Or transType = "Transfer Out" Then
-                    item.BackColor = Color.LightCoral ' Money going out
+                    item.BackColor = Color.LightCoral
                 End If
 
                 TransactionList.Items.Add(item)

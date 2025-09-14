@@ -32,6 +32,7 @@ Partial Class frmTransactionLogs
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -84,7 +85,7 @@ Partial Class frmTransactionLogs
         'TransactionList
         '
         Me.TransactionList.BackColor = System.Drawing.SystemColors.HighlightText
-        Me.TransactionList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4})
+        Me.TransactionList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5})
         Me.TransactionList.GridLines = True
         Me.TransactionList.HideSelection = False
         Me.TransactionList.Location = New System.Drawing.Point(84, 56)
@@ -101,18 +102,18 @@ Partial Class frmTransactionLogs
         '
         'ColumnHeader2
         '
-        Me.ColumnHeader2.Text = "Transaction Type"
-        Me.ColumnHeader2.Width = 200
+        Me.ColumnHeader2.Text = "Customer Name"
+        Me.ColumnHeader2.Width = 150
         '
         'ColumnHeader3
         '
-        Me.ColumnHeader3.Text = "Amount"
-        Me.ColumnHeader3.Width = 200
+        Me.ColumnHeader3.Text = "Transaction Type"
+        Me.ColumnHeader3.Width = 120
         '
         'ColumnHeader4
         '
-        Me.ColumnHeader4.Text = "Date"
-        Me.ColumnHeader4.Width = 200
+        Me.ColumnHeader4.Text = "Amount"
+        Me.ColumnHeader4.Width = 100
         '
         'Panel4
         '
@@ -131,6 +132,11 @@ Partial Class frmTransactionLogs
         Me.ListView1.Size = New System.Drawing.Size(919, 583)
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
+        '
+        'ColumnHeader5
+        '
+        Me.ColumnHeader5.Text = "Date"
+        Me.ColumnHeader5.Width = 150
         '
         'frmTransactionLogs
         '
@@ -156,4 +162,5 @@ Partial Class frmTransactionLogs
     Friend WithEvents ColumnHeader4 As ColumnHeader
     Friend WithEvents btnClose As Button
     Friend WithEvents btnRefresh As Button
+    Friend WithEvents ColumnHeader5 As ColumnHeader
 End Class

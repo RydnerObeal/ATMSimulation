@@ -46,7 +46,7 @@ Public Class frmDeposit
             cmd.Parameters.AddWithValue("@acc", UserAccountNumber)
             cmd.ExecuteNonQuery()
 
-            ' 🆕 Log the deposit transaction
+            'Log the deposit transaction
             sql = "INSERT INTO deposits (account_number, amount, deposit_date) VALUES (@acc, @amount, NOW())"
             cmd = New MySqlCommand(sql, cn, transaction)
             cmd.Parameters.AddWithValue("@acc", UserAccountNumber)

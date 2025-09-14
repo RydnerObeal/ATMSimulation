@@ -120,7 +120,7 @@ Public Class frmTransfer
                 addCommand.ExecuteNonQuery()
             End Using
 
-            ' 🆕 Log the transfer transaction
+            ' Log the transfer transaction
             Dim logQuery As String = "INSERT INTO fund_transfers (from_account, to_account, amount, transfer_date) VALUES (@from_account, @to_account, @amount, NOW())"
             Using logCommand As New MySqlCommand(logQuery, connection, transaction)
                 logCommand.Parameters.AddWithValue("@from_account", CurrentUserAccount)

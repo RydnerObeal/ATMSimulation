@@ -192,11 +192,11 @@ Partial Class frmAdmin
         Me.lblAdminName.AutoSize = True
         Me.lblAdminName.Font = New System.Drawing.Font("Arial Rounded MT Bold", 22.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAdminName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(186, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.lblAdminName.Location = New System.Drawing.Point(295, 22)
+        Me.lblAdminName.Location = New System.Drawing.Point(278, 22)
         Me.lblAdminName.Name = "lblAdminName"
-        Me.lblAdminName.Size = New System.Drawing.Size(31, 43)
+        Me.lblAdminName.Size = New System.Drawing.Size(134, 43)
         Me.lblAdminName.TabIndex = 12
-        Me.lblAdminName.Text = "-"
+        Me.lblAdminName.Text = "Admin"
         '
         'Label5
         '

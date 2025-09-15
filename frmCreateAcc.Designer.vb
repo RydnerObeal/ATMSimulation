@@ -155,9 +155,9 @@ Partial Class frmCreateAcc
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(186, Byte), Integer), CType(CType(43, Byte), Integer))
         Me.Label8.Location = New System.Drawing.Point(70, 405)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(121, 25)
+        Me.Label8.Size = New System.Drawing.Size(128, 25)
         Me.Label8.TabIndex = 51
-        Me.Label8.Text = "Cinfirm PIN"
+        Me.Label8.Text = "Confirm PIN"
         '
         'Label3
         '

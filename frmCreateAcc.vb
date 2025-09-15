@@ -8,7 +8,6 @@ Public Class frmCreateAcc
         cboRole.Items.Clear()
         cboRole.Items.Add("Customer")
         cboRole.Items.Add("Admin")
-
         GenerateAccountNumber()
     End Sub
 
@@ -18,9 +17,10 @@ Public Class frmCreateAcc
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         txtName.Clear()
-        txtAccountNumber.Clear()
         txtPIN.Clear()
+        txtConfirmPin.Clear()
         cboRole.SelectedIndex = -1
+        GenerateAccountNumber()
     End Sub
 
     Private Sub btnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
@@ -38,20 +38,18 @@ Public Class frmCreateAcc
         Dim random As New Random()
         Dim accountNumber As String = ""
         For i As Integer = 1 To 10
-            accountNumber = accountNumber + random.Next(0, 9).ToString()
+            accountNumber = accountNumber + random.Next(0, 10).ToString()
         Next
         txtAccountNumber.Text = accountNumber
     End Sub
 
     Private Function ValidateInputs() As Boolean
-        ' Check name
         If txtName.Text = "" Then
             MessageBox.Show("Please enter a name!", "Admin - Validation Error")
             txtName.Focus()
             Return False
         End If
 
-        ' Check account number
         If txtAccountNumber.Text = "" Then
             MessageBox.Show("Account number is required!", "Admin - Validation Error")
             txtAccountNumber.Focus()
@@ -64,7 +62,6 @@ Public Class frmCreateAcc
             Return False
         End If
 
-        ' Check PIN
         If txtPIN.Text = "" Then
             MessageBox.Show("Please enter a PIN!", "Admin - Validation Error")
             txtPIN.Focus()
@@ -83,7 +80,18 @@ Public Class frmCreateAcc
             Return False
         End If
 
-        ' Check role
+        If txtConfirmPin.Text = "" Then
+            MessageBox.Show("Please confirm your PIN!", "Admin - Validation Error")
+            txtConfirmPin.Focus()
+            Return False
+        End If
+
+        If txtPIN.Text <> txtConfirmPin.Text Then
+            MessageBox.Show("PIN and Confirm PIN do not match!", "Admin - Validation Error")
+            txtConfirmPin.Focus()
+            Return False
+        End If
+
         If cboRole.SelectedIndex = -1 Then
             MessageBox.Show("Please select a role!", "Admin - Validation Error")
             cboRole.Focus()
@@ -116,28 +124,14 @@ Public Class frmCreateAcc
         End Try
     End Function
 
-    Private Function HashPIN(pin As String) As String
-        Dim sha256 As SHA256 = SHA256.Create()
-        Dim bytes As Byte() = sha256.ComputeHash(Encoding.UTF8.GetBytes(pin))
-        Dim hashedPIN As String = ""
-
-        For i As Integer = 0 To bytes.Length - 1
-            hashedPIN = hashedPIN + bytes(i).ToString("x2")
-        Next
-
-        Return hashedPIN
-    End Function
-
     Private Sub CreateAccount()
         Try
             Connect()
 
-            Dim hashedPIN As String = HashPIN(txtPIN.Text)
-
             sql = "INSERT INTO users (name, account_number, pin, attempts, role, status, balance) VALUES ('" +
                   txtName.Text + "', '" +
                   txtAccountNumber.Text + "', '" +
-                  hashedPIN + "', " +
+                  txtPIN.Text + "', " +
                   "0, '" +
                   cboRole.SelectedItem.ToString() + "', " +
                   "'Active', 0.00)"
@@ -150,6 +144,7 @@ Public Class frmCreateAcc
                 MessageBox.Show("Account created successfully!" + vbCrLf +
                                "Name: " + txtName.Text + vbCrLf +
                                "Account Number: " + txtAccountNumber.Text + vbCrLf +
+                               "PIN: " + txtPIN.Text + vbCrLf +
                                "Role: " + cboRole.SelectedItem.ToString() + vbCrLf +
                                "Status: Active", "Admin - Success")
                 ClearForm()
@@ -166,12 +161,19 @@ Public Class frmCreateAcc
     Private Sub ClearForm()
         txtName.Clear()
         txtPIN.Clear()
+        txtConfirmPin.Clear()
         cboRole.SelectedIndex = -1
         GenerateAccountNumber()
         txtName.Focus()
     End Sub
 
     Private Sub txtPIN_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPIN.KeyPress
+        If Char.IsDigit(e.KeyChar) = False And Char.IsControl(e.KeyChar) = False Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtConfirmPin_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtConfirmPin.KeyPress
         If Char.IsDigit(e.KeyChar) = False And Char.IsControl(e.KeyChar) = False Then
             e.Handled = True
         End If

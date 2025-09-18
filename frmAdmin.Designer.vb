@@ -34,7 +34,6 @@ Partial Class frmAdmin
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.lvUsers = New System.Windows.Forms.ListView()
-        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -63,6 +62,7 @@ Partial Class frmAdmin
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.MainPanel.SuspendLayout()
@@ -220,27 +220,22 @@ Partial Class frmAdmin
         'lvUsers
         '
         Me.lvUsers.BackColor = System.Drawing.SystemColors.Menu
-        Me.lvUsers.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader8})
+        Me.lvUsers.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader8})
         Me.lvUsers.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lvUsers.FullRowSelect = True
         Me.lvUsers.GridLines = True
         Me.lvUsers.HideSelection = False
         Me.lvUsers.Location = New System.Drawing.Point(18, 54)
         Me.lvUsers.Name = "lvUsers"
-        Me.lvUsers.Size = New System.Drawing.Size(927, 263)
+        Me.lvUsers.Size = New System.Drawing.Size(904, 263)
         Me.lvUsers.TabIndex = 31
         Me.lvUsers.UseCompatibleStateImageBehavior = False
         Me.lvUsers.View = System.Windows.Forms.View.Details
         '
-        'ColumnHeader1
-        '
-        Me.ColumnHeader1.Text = "User ID"
-        Me.ColumnHeader1.Width = 80
-        '
         'ColumnHeader2
         '
         Me.ColumnHeader2.Text = "Username"
-        Me.ColumnHeader2.Width = 150
+        Me.ColumnHeader2.Width = 200
         '
         'ColumnHeader3
         '
@@ -291,7 +286,7 @@ Partial Class frmAdmin
         Me.txtSearch.ForeColor = System.Drawing.Color.FromArgb(CType(CType(92, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(230, Byte), Integer))
         Me.txtSearch.Location = New System.Drawing.Point(133, 4)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(317, 25)
+        Me.txtSearch.Size = New System.Drawing.Size(387, 25)
         Me.txtSearch.TabIndex = 49
         '
         'MainPanel
@@ -308,6 +303,7 @@ Partial Class frmAdmin
         '
         'pnlManageUsers
         '
+        Me.pnlManageUsers.Controls.Add(Me.Label1)
         Me.pnlManageUsers.Controls.Add(Me.cboRole)
         Me.pnlManageUsers.Controls.Add(Me.btnClear)
         Me.pnlManageUsers.Controls.Add(Me.Label11)
@@ -545,6 +541,17 @@ Partial Class frmAdmin
         Me.Label2.TabIndex = 59
         Me.Label2.Text = "User ID"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(15, 27)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(288, 16)
+        Me.Label1.TabIndex = 77
+        Me.Label1.Text = "Search By: Username and Account Number"
+        '
         'frmAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -579,7 +586,6 @@ Partial Class frmAdmin
     Friend WithEvents lblAdminName As Label
     Friend WithEvents Panel4 As Panel
     Friend WithEvents lvUsers As ListView
-    Friend WithEvents ColumnHeader1 As ColumnHeader
     Friend WithEvents ColumnHeader2 As ColumnHeader
     Friend WithEvents ColumnHeader3 As ColumnHeader
     Friend WithEvents ColumnHeader4 As ColumnHeader
@@ -608,4 +614,5 @@ Partial Class frmAdmin
     Friend WithEvents Label2 As Label
     Friend WithEvents pnlManageUsers As Panel
     Friend WithEvents cboRole As ComboBox
+    Friend WithEvents Label1 As Label
 End Class

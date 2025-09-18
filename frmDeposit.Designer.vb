@@ -28,8 +28,15 @@ Partial Class frmDeposit
         Me.Label5 = New System.Windows.Forms.Label()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.btnDeposit = New System.Windows.Forms.Button()
-        Me.txtAmountDeposit = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblAmountDeposit = New System.Windows.Forms.Label()
+        Me.btn10000 = New System.Windows.Forms.Button()
+        Me.btn1000 = New System.Windows.Forms.Button()
+        Me.btn500 = New System.Windows.Forms.Button()
+        Me.btn200 = New System.Windows.Forms.Button()
+        Me.btn100 = New System.Windows.Forms.Button()
+        Me.btn50 = New System.Windows.Forms.Button()
+        Me.btnClear = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label2
@@ -60,7 +67,7 @@ Partial Class frmDeposit
         Me.lblBalance.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.lblBalance.Font = New System.Drawing.Font("Arial Rounded MT Bold", 22.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBalance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(186, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.lblBalance.Location = New System.Drawing.Point(545, 137)
+        Me.lblBalance.Location = New System.Drawing.Point(498, 52)
         Me.lblBalance.Name = "lblBalance"
         Me.lblBalance.Size = New System.Drawing.Size(97, 43)
         Me.lblBalance.TabIndex = 59
@@ -71,11 +78,11 @@ Partial Class frmDeposit
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Arial Rounded MT Bold", 22.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(186, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(168, 137)
+        Me.Label5.Location = New System.Drawing.Point(158, 52)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(359, 43)
+        Me.Label5.Size = New System.Drawing.Size(334, 43)
         Me.Label5.TabIndex = 58
-        Me.Label5.Text = "Current Balance: ₱"
+        Me.Label5.Text = "Current Balance: "
         '
         'btnBack
         '
@@ -86,7 +93,7 @@ Partial Class frmDeposit
         Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBack.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBack.ForeColor = System.Drawing.Color.DarkRed
-        Me.btnBack.Location = New System.Drawing.Point(445, 343)
+        Me.btnBack.Location = New System.Drawing.Point(629, 425)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(177, 43)
         Me.btnBack.TabIndex = 60
@@ -102,35 +109,147 @@ Partial Class frmDeposit
         Me.btnDeposit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDeposit.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDeposit.ForeColor = System.Drawing.Color.DarkRed
-        Me.btnDeposit.Location = New System.Drawing.Point(234, 343)
+        Me.btnDeposit.Location = New System.Drawing.Point(234, 425)
         Me.btnDeposit.Name = "btnDeposit"
         Me.btnDeposit.Size = New System.Drawing.Size(177, 43)
         Me.btnDeposit.TabIndex = 61
         Me.btnDeposit.Text = "Deposit"
         Me.btnDeposit.UseVisualStyleBackColor = False
         '
-        'txtAmountDeposit
-        '
-        Me.txtAmountDeposit.BackColor = System.Drawing.SystemColors.Menu
-        Me.txtAmountDeposit.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtAmountDeposit.Font = New System.Drawing.Font("Arial Rounded MT Bold", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAmountDeposit.ForeColor = System.Drawing.SystemColors.MenuText
-        Me.txtAmountDeposit.Location = New System.Drawing.Point(445, 229)
-        Me.txtAmountDeposit.Name = "txtAmountDeposit"
-        Me.txtAmountDeposit.Size = New System.Drawing.Size(247, 39)
-        Me.txtAmountDeposit.TabIndex = 62
-        Me.txtAmountDeposit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial Rounded MT Bold", 16.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(186, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(143, 234)
+        Me.Label3.Location = New System.Drawing.Point(160, 118)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(283, 32)
         Me.Label3.TabIndex = 63
         Me.Label3.Text = "Amount to Deposit: "
+        '
+        'lblAmountDeposit
+        '
+        Me.lblAmountDeposit.AutoSize = True
+        Me.lblAmountDeposit.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lblAmountDeposit.Font = New System.Drawing.Font("Arial Rounded MT Bold", 22.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAmountDeposit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(186, Byte), Integer), CType(CType(43, Byte), Integer))
+        Me.lblAmountDeposit.Location = New System.Drawing.Point(498, 109)
+        Me.lblAmountDeposit.Name = "lblAmountDeposit"
+        Me.lblAmountDeposit.Size = New System.Drawing.Size(97, 43)
+        Me.lblAmountDeposit.TabIndex = 64
+        Me.lblAmountDeposit.Text = "0.00"
+        '
+        'btn10000
+        '
+        Me.btn10000.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.btn10000.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn10000.FlatAppearance.BorderSize = 0
+        Me.btn10000.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btn10000.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn10000.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn10000.ForeColor = System.Drawing.Color.DarkRed
+        Me.btn10000.Location = New System.Drawing.Point(571, 301)
+        Me.btn10000.Name = "btn10000"
+        Me.btn10000.Size = New System.Drawing.Size(177, 43)
+        Me.btn10000.TabIndex = 84
+        Me.btn10000.Text = "10,000"
+        Me.btn10000.UseVisualStyleBackColor = False
+        '
+        'btn1000
+        '
+        Me.btn1000.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.btn1000.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn1000.FlatAppearance.BorderSize = 0
+        Me.btn1000.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btn1000.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn1000.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn1000.ForeColor = System.Drawing.Color.DarkRed
+        Me.btn1000.Location = New System.Drawing.Point(334, 301)
+        Me.btn1000.Name = "btn1000"
+        Me.btn1000.Size = New System.Drawing.Size(177, 43)
+        Me.btn1000.TabIndex = 83
+        Me.btn1000.Text = "1,000"
+        Me.btn1000.UseVisualStyleBackColor = False
+        '
+        'btn500
+        '
+        Me.btn500.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.btn500.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn500.FlatAppearance.BorderSize = 0
+        Me.btn500.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btn500.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn500.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn500.ForeColor = System.Drawing.Color.DarkRed
+        Me.btn500.Location = New System.Drawing.Point(102, 301)
+        Me.btn500.Name = "btn500"
+        Me.btn500.Size = New System.Drawing.Size(177, 43)
+        Me.btn500.TabIndex = 82
+        Me.btn500.Text = "500"
+        Me.btn500.UseVisualStyleBackColor = False
+        '
+        'btn200
+        '
+        Me.btn200.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.btn200.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn200.FlatAppearance.BorderSize = 0
+        Me.btn200.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btn200.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn200.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn200.ForeColor = System.Drawing.Color.DarkRed
+        Me.btn200.Location = New System.Drawing.Point(571, 215)
+        Me.btn200.Name = "btn200"
+        Me.btn200.Size = New System.Drawing.Size(177, 43)
+        Me.btn200.TabIndex = 81
+        Me.btn200.Text = "200"
+        Me.btn200.UseVisualStyleBackColor = False
+        '
+        'btn100
+        '
+        Me.btn100.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.btn100.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn100.FlatAppearance.BorderSize = 0
+        Me.btn100.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btn100.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn100.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn100.ForeColor = System.Drawing.Color.DarkRed
+        Me.btn100.Location = New System.Drawing.Point(334, 215)
+        Me.btn100.Name = "btn100"
+        Me.btn100.Size = New System.Drawing.Size(177, 43)
+        Me.btn100.TabIndex = 80
+        Me.btn100.Text = "100"
+        Me.btn100.UseVisualStyleBackColor = False
+        '
+        'btn50
+        '
+        Me.btn50.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.btn50.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn50.FlatAppearance.BorderSize = 0
+        Me.btn50.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btn50.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn50.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn50.ForeColor = System.Drawing.Color.DarkRed
+        Me.btn50.Location = New System.Drawing.Point(102, 217)
+        Me.btn50.Name = "btn50"
+        Me.btn50.Size = New System.Drawing.Size(177, 43)
+        Me.btn50.TabIndex = 79
+        Me.btn50.Text = "50"
+        Me.btn50.UseVisualStyleBackColor = False
+        '
+        'btnClear
+        '
+        Me.btnClear.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.btnClear.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnClear.FlatAppearance.BorderSize = 0
+        Me.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClear.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClear.ForeColor = System.Drawing.Color.DarkRed
+        Me.btnClear.Location = New System.Drawing.Point(429, 425)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(177, 43)
+        Me.btnClear.TabIndex = 85
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = False
         '
         'frmDeposit
         '
@@ -138,8 +257,15 @@ Partial Class frmDeposit
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(74, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(823, 523)
+        Me.Controls.Add(Me.btnClear)
+        Me.Controls.Add(Me.btn10000)
+        Me.Controls.Add(Me.btn1000)
+        Me.Controls.Add(Me.btn500)
+        Me.Controls.Add(Me.btn200)
+        Me.Controls.Add(Me.btn100)
+        Me.Controls.Add(Me.btn50)
+        Me.Controls.Add(Me.lblAmountDeposit)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.txtAmountDeposit)
         Me.Controls.Add(Me.btnDeposit)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.lblBalance)
@@ -160,6 +286,13 @@ Partial Class frmDeposit
     Friend WithEvents Label5 As Label
     Friend WithEvents btnBack As Button
     Friend WithEvents btnDeposit As Button
-    Friend WithEvents txtAmountDeposit As TextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents lblAmountDeposit As Label
+    Friend WithEvents btn10000 As Button
+    Friend WithEvents btn1000 As Button
+    Friend WithEvents btn500 As Button
+    Friend WithEvents btn200 As Button
+    Friend WithEvents btn100 As Button
+    Friend WithEvents btn50 As Button
+    Friend WithEvents btnClear As Button
 End Class

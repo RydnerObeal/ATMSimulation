@@ -23,23 +23,21 @@ Partial Class frmTransactionLogs
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnClose = New System.Windows.Forms.Button()
         Me.btnRefresh = New System.Windows.Forms.Button()
         Me.TransactionList = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.ListView1 = New System.Windows.Forms.ListView()
-        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(74, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.btnClose)
         Me.Panel1.Controls.Add(Me.btnRefresh)
         Me.Panel1.Controls.Add(Me.TransactionList)
         Me.Panel1.Controls.Add(Me.Panel4)
@@ -49,22 +47,6 @@ Partial Class frmTransactionLogs
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(975, 635)
         Me.Panel1.TabIndex = 0
-        '
-        'btnClose
-        '
-        Me.btnClose.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(235, Byte), Integer))
-        Me.btnClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnClose.FlatAppearance.BorderSize = 0
-        Me.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClose.Font = New System.Drawing.Font("Century Gothic", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClose.ForeColor = System.Drawing.Color.DarkRed
-        Me.btnClose.Location = New System.Drawing.Point(502, 526)
-        Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(177, 43)
-        Me.btnClose.TabIndex = 77
-        Me.btnClose.Text = "Close"
-        Me.btnClose.UseVisualStyleBackColor = False
         '
         'btnRefresh
         '
@@ -115,6 +97,11 @@ Partial Class frmTransactionLogs
         Me.ColumnHeader4.Text = "Amount"
         Me.ColumnHeader4.Width = 100
         '
+        'ColumnHeader5
+        '
+        Me.ColumnHeader5.Text = "Date"
+        Me.ColumnHeader5.Width = 150
+        '
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.Red
@@ -132,11 +119,6 @@ Partial Class frmTransactionLogs
         Me.ListView1.Size = New System.Drawing.Size(919, 583)
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
-        '
-        'ColumnHeader5
-        '
-        Me.ColumnHeader5.Text = "Date"
-        Me.ColumnHeader5.Width = 150
         '
         'frmTransactionLogs
         '
@@ -160,7 +142,6 @@ Partial Class frmTransactionLogs
     Friend WithEvents ColumnHeader2 As ColumnHeader
     Friend WithEvents ColumnHeader3 As ColumnHeader
     Friend WithEvents ColumnHeader4 As ColumnHeader
-    Friend WithEvents btnClose As Button
     Friend WithEvents btnRefresh As Button
     Friend WithEvents ColumnHeader5 As ColumnHeader
 End Class

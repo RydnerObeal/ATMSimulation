@@ -14,8 +14,6 @@ Public Class frmTransactionLogs
         TransactionList.View = View.Details
         TransactionList.FullRowSelect = True
         TransactionList.GridLines = True
-
-        ' Clear and add columns
         TransactionList.Columns.Clear()
         TransactionList.Columns.Add("Account Number", 120)
         TransactionList.Columns.Add("Customer Name", 150)
@@ -121,7 +119,7 @@ Public Class frmTransactionLogs
         MessageBox.Show("Transactions refreshed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
-    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+    Private Sub btnClose_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
 

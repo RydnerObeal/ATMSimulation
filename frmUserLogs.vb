@@ -24,7 +24,6 @@ Public Class frmUserLogs
         ListView2.Items.Clear()
 
         Try
-            ' Use the same connection method as your frmTransfer
             Using connection As New MySqlConnection(connectionString)
                 connection.Open()
 
@@ -99,7 +98,6 @@ Public Class frmUserLogs
                 End Using
             End Using
 
-            ' Show how many transactions were loaded
             MessageBox.Show($"Loaded {ListView2.Items.Count} transactions for account: {CurrentUserAccount}",
                           "Debug Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
 

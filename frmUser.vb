@@ -15,8 +15,17 @@ Public Class frmUser
         dr = cmd.ExecuteReader()
 
         If dr.Read() Then
+            Dim Number_Acc As String = dr("account_number").ToString()
+            Dim masking As String
+
             lblName.Text = dr("name").ToString()
-            lblNumber.Text = dr("account_number").ToString()
+            If Number_Acc.Length > 3 Then
+                masking = New String("X"c, Number_Acc.Length - 3) & Number_Acc.Substring(Number_Acc.Length - 3)
+                lblNumber.Text = masking
+            Else
+                lblNumber.Text = Number_Acc
+
+            End If
         End If
 
         dr.Close()
@@ -133,5 +142,29 @@ Public Class frmUser
             loginForm.Show()
             Me.Close()
         End If
+    End Sub
+
+    Private Sub lblNumber_Click(sender As Object, e As EventArgs) Handles lblNumber.Click
+
+    End Sub
+    '********************************************************************
+
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        Dim policyForm As New frmpolicy()
+        policyForm.TopLevel = False
+        policyForm.FormBorderStyle = FormBorderStyle.None
+        policyForm.Dock = DockStyle.Fill
+
+        PanelBottons.Visible = False
+
+        ShowPanel.Controls.Add(policyForm)
+        policyForm.Show()
+
+        AddHandler policyForm.FormClosed, AddressOf PolicyForm_FormClosed
+    End Sub
+
+    Private Sub PolicyForm_FormClosed(sender As Object, e As FormClosedEventArgs)
+        PanelBottons.Visible = True
+        ShowPanel.Controls.Remove(DirectCast(sender, Form))
     End Sub
 End Class

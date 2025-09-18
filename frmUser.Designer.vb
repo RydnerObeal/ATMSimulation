@@ -41,6 +41,7 @@ Partial Class frmUser
         Me.ShowPanel = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.PanelBottons.SuspendLayout()
@@ -52,7 +53,7 @@ Partial Class frmUser
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(186, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(650, 19)
+        Me.Label1.Location = New System.Drawing.Point(315, 31)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(370, 46)
         Me.Label1.TabIndex = 0
@@ -199,7 +200,7 @@ Partial Class frmUser
         Me.lblName.AutoSize = True
         Me.lblName.Font = New System.Drawing.Font("Arial Rounded MT Bold", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblName.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.lblName.Location = New System.Drawing.Point(202, 36)
+        Me.lblName.Location = New System.Drawing.Point(202, 99)
         Me.lblName.Name = "lblName"
         Me.lblName.Size = New System.Drawing.Size(111, 38)
         Me.lblName.TabIndex = 2
@@ -210,7 +211,7 @@ Partial Class frmUser
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial Rounded MT Bold", 19.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.Location = New System.Drawing.Point(11, 36)
+        Me.Label2.Location = New System.Drawing.Point(11, 99)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(185, 38)
         Me.Label2.TabIndex = 1
@@ -229,6 +230,7 @@ Partial Class frmUser
         '
         'PanelBottons
         '
+        Me.PanelBottons.Controls.Add(Me.LinkLabel1)
         Me.PanelBottons.Controls.Add(Me.btnDeposit)
         Me.PanelBottons.Controls.Add(Me.btnTransaction)
         Me.PanelBottons.Controls.Add(Me.btnWithdraw)
@@ -254,7 +256,7 @@ Partial Class frmUser
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Arial Rounded MT Bold", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(186, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(-3, 170)
+        Me.Label6.Location = New System.Drawing.Point(0, 170)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(43, 552)
         Me.Label6.TabIndex = 61
@@ -266,11 +268,21 @@ Partial Class frmUser
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Arial Rounded MT Bold", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(186, Byte), Integer), CType(CType(43, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(1197, 170)
+        Me.Label7.Location = New System.Drawing.Point(1194, 170)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(43, 552)
         Me.Label7.TabIndex = 62
         Me.Label7.Text = "+" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "+" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "+" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "+" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "+" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "+" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "+" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "+" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "+" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "+" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "+" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "+"
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Location = New System.Drawing.Point(235, 455)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(44, 16)
+        Me.LinkLabel1.TabIndex = 6
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "Policy"
         '
         'frmUser
         '
@@ -290,6 +302,7 @@ Partial Class frmUser
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         Me.PanelBottons.ResumeLayout(False)
+        Me.PanelBottons.PerformLayout()
         Me.ShowPanel.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -314,4 +327,5 @@ Partial Class frmUser
     Friend WithEvents Label4 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
+    Friend WithEvents LinkLabel1 As LinkLabel
 End Class

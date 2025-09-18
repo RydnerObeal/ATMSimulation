@@ -112,6 +112,12 @@
       <DependentUpon>frmLogin.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmpolicy.Designer.vb">
+      <DependentUpon>frmpolicy.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmpolicy.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmTransactionLogs.Designer.vb">
       <DependentUpon>frmTransactionLogs.vb</DependentUpon>
     </Compile>
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmpolicy.resx">
+      <DependentUpon>frmpolicy.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTransactionLogs.resx">
       <DependentUpon>frmTransactionLogs.vb</DependentUpon>

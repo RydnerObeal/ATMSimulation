@@ -4,141 +4,135 @@ Public Class frmTransfer
     Public Property CurrentUserAccount As String
     Private connectionString As String = "server=localhost;user=root;password=;database=atm_system"
 
+    ' Back button
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Me.Close()
     End Sub
 
+    ' Transfer button
     Private Sub btnTransfer_Click(sender As Object, e As EventArgs) Handles btnTransfer.Click
-        If Not ValidateInputs() Then Return
-
         Dim transferTo As String = txtTransferTo.Text.Trim()
-        Dim amount As Decimal = Convert.ToDecimal(txtAmountTransfer.Text)
+        Dim amount As Decimal = 0
+
+        ' Check kung may laman ang account number field
+        If transferTo = "" Then
+            MessageBox.Show("Please enter the account number to transfer to.", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtTransferTo.Focus()
+            Exit Sub
+        End If
+
+        ' Check if amount is valid
+        If Decimal.TryParse(txtAmountTransfer.Text, amount) = False OrElse amount <= 0 Then
+            MessageBox.Show("Please enter a valid transfer amount.", "Invalid Amount", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtAmountTransfer.Focus()
+            Exit Sub
+        End If
+
+        ' Prevent self-transfer
+        If transferTo = CurrentUserAccount Then
+            MessageBox.Show("You cannot transfer money to your own account.", "Invalid Transfer", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtTransferTo.Focus()
+            Exit Sub
+        End If
 
         ' Perform the transfer
-        If ProcessTransfer(transferTo, amount) Then
-            MessageBox.Show("Transfer successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        If ProcessTransfer(transferTo, amount) = True Then
+            ' Show receipt
+            Dim receipt As String = "----- TRANSFER RECEIPT -----" & vbCrLf &
+                                    "From Account: " & CurrentUserAccount & vbCrLf &
+                                    "To Account: " & transferTo & vbCrLf &
+                                    "Amount Transferred: ₱" & amount.ToString("N2") & vbCrLf &
+                                    "Date/Time: " & DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") & vbCrLf &
+                                    "----------------------------"
+
+            MessageBox.Show(receipt, "Transfer Receipt", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
             ClearFields()
         End If
     End Sub
 
-    Private Function ValidateInputs() As Boolean
-        ' Check kung may laman ang account number field
-        If String.IsNullOrWhiteSpace(txtTransferTo.Text.Trim()) Then
-            MessageBox.Show("Please enter the account number to transfer to.", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            txtTransferTo.Focus()
-            Return False
-        End If
-
-        ' Check if amount is valid
-        Dim amount As Decimal
-        If Not Decimal.TryParse(txtAmountTransfer.Text, amount) OrElse amount <= 0 Then
-            MessageBox.Show("Please enter a valid transfer amount.", "Invalid Amount", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            txtAmountTransfer.Focus()
-            Return False
-        End If
-
-        ' Prevent self-transfer
-        If txtTransferTo.Text.Trim() = CurrentUserAccount Then
-            MessageBox.Show("You cannot transfer money to your own account.", "Invalid Transfer", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            txtTransferTo.Focus()
-            Return False
-        End If
-
-        Return True
-    End Function
-
+    ' Process transfer logic
     Private Function ProcessTransfer(transferTo As String, amount As Decimal) As Boolean
-        Using connection As New MySqlConnection(connectionString)
-            Try
-                connection.Open()
+        Dim connection As New MySqlConnection(connectionString)
+        connection.Open()
 
-                ' Check sender's balance
-                If Not HasSufficientBalance(connection, amount) Then Return False
+        Dim senderBalance As Decimal = 0
+        Dim targetExists As Boolean = False
 
-                ' Check if target account exists
-                If Not AccountExists(connection, transferTo) Then
-                    MessageBox.Show("Target account not found.", "Transfer Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Return False
-                End If
+        ' Check sender balance
+        sql = "SELECT balance FROM users WHERE account_number=@acc"
+        cmd = New MySqlCommand(sql, connection)
+        cmd.Parameters.AddWithValue("@acc", CurrentUserAccount)
+        dr = cmd.ExecuteReader()
 
-                ' Execute the transfer
-                Return ExecuteTransfer(connection, transferTo, amount)
+        While dr.Read()
+            senderBalance = Convert.ToDecimal(dr("balance"))
+        End While
+        dr.Close()
 
-            Catch ex As Exception
-                MessageBox.Show("Database connection error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Return False
-            End Try
-        End Using
-    End Function
+        If senderBalance < amount Then
+            MessageBox.Show("Insufficient funds. Your balance is ₱" & senderBalance.ToString("N2"), "Insufficient Funds", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            connection.Close()
+            Return False
+        End If
 
-    Private Function HasSufficientBalance(connection As MySqlConnection, amount As Decimal) As Boolean
-        Dim query As String = "SELECT balance FROM users WHERE account_number = @account_number"
-        Using command As New MySqlCommand(query, connection)
-            command.Parameters.AddWithValue("@account_number", CurrentUserAccount)
-            Dim senderBalanceObj = command.ExecuteScalar()
+        ' Check if target account exists
+        sql = "SELECT account_number FROM users WHERE account_number=@target"
+        cmd = New MySqlCommand(sql, connection)
+        cmd.Parameters.AddWithValue("@target", transferTo)
+        dr = cmd.ExecuteReader()
 
-            If senderBalanceObj Is Nothing Then
-                MessageBox.Show("Your account was not found.", "Account Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Return False
-            End If
+        While dr.Read()
+            targetExists = True
+        End While
+        dr.Close()
 
-            Dim senderBalance As Decimal = Convert.ToDecimal(senderBalanceObj)
-            If senderBalance < amount Then
-                MessageBox.Show($"Insufficient funds. Your current balance is: ₱{senderBalance:N2}", "Insufficient Funds", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Return False
-            End If
+        If targetExists = False Then
+            MessageBox.Show("Target account not found.", "Transfer Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            connection.Close()
+            Return False
+        End If
 
-            Return True
-        End Using
-    End Function
-
-    Private Function AccountExists(connection As MySqlConnection, accountNumber As String) As Boolean
-        Dim query As String = "SELECT COUNT(*) FROM users WHERE account_number = @account_number"
-        Using command As New MySqlCommand(query, connection)
-            command.Parameters.AddWithValue("@account_number", accountNumber)
-            Dim count As Integer = Convert.ToInt32(command.ExecuteScalar())
-            Return count > 0
-        End Using
-    End Function
-
-    Private Function ExecuteTransfer(connection As MySqlConnection, transferTo As String, amount As Decimal) As Boolean
+        ' Process transfer with transaction
         Dim transaction = connection.BeginTransaction()
+        Dim success As Boolean = False
+
         Try
             ' Deduct from sender
-            Dim deductQuery As String = "UPDATE users SET balance = balance - @amount WHERE account_number = @account_number"
-            Using deductCommand As New MySqlCommand(deductQuery, connection, transaction)
-                deductCommand.Parameters.AddWithValue("@amount", amount)
-                deductCommand.Parameters.AddWithValue("@account_number", CurrentUserAccount)
-                deductCommand.ExecuteNonQuery()
-            End Using
+            sql = "UPDATE users SET balance = balance - @amt WHERE account_number=@acc"
+            cmd = New MySqlCommand(sql, connection, transaction)
+            cmd.Parameters.AddWithValue("@amt", amount)
+            cmd.Parameters.AddWithValue("@acc", CurrentUserAccount)
+            cmd.ExecuteNonQuery()
 
             ' Add to receiver
-            Dim addQuery As String = "UPDATE users SET balance = balance + @amount WHERE account_number = @transferTo"
-            Using addCommand As New MySqlCommand(addQuery, connection, transaction)
-                addCommand.Parameters.AddWithValue("@amount", amount)
-                addCommand.Parameters.AddWithValue("@transferTo", transferTo)
-                addCommand.ExecuteNonQuery()
-            End Using
+            sql = "UPDATE users SET balance = balance + @amt WHERE account_number=@target"
+            cmd = New MySqlCommand(sql, connection, transaction)
+            cmd.Parameters.AddWithValue("@amt", amount)
+            cmd.Parameters.AddWithValue("@target", transferTo)
+            cmd.ExecuteNonQuery()
 
-            ' Log the transfer transaction
-            Dim logQuery As String = "INSERT INTO fund_transfers (from_account, to_account, amount, transfer_date) VALUES (@from_account, @to_account, @amount, NOW())"
-            Using logCommand As New MySqlCommand(logQuery, connection, transaction)
-                logCommand.Parameters.AddWithValue("@from_account", CurrentUserAccount)
-                logCommand.Parameters.AddWithValue("@to_account", transferTo)
-                logCommand.Parameters.AddWithValue("@amount", amount)
-                logCommand.ExecuteNonQuery()
-            End Using
+            ' Log transfer
+            sql = "INSERT INTO fund_transfers (from_account, to_account, amount, transfer_date) VALUES (@from, @to, @amt, NOW())"
+            cmd = New MySqlCommand(sql, connection, transaction)
+            cmd.Parameters.AddWithValue("@from", CurrentUserAccount)
+            cmd.Parameters.AddWithValue("@to", transferTo)
+            cmd.Parameters.AddWithValue("@amt", amount)
+            cmd.ExecuteNonQuery()
 
             transaction.Commit()
-            Return True
+            success = True
 
         Catch ex As Exception
             transaction.Rollback()
-            MessageBox.Show("Transfer failed: " & ex.Message, "Transfer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return False
+            MessageBox.Show("Transfer failed: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+
+        connection.Close()
+        Return success
     End Function
 
+    ' Clear input fields
     Private Sub ClearFields()
         txtTransferTo.Clear()
         txtAmountTransfer.Clear()
